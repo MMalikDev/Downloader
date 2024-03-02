@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Downloader</title>
+  </head>
+  <body>
+    <header>
+      <div class="container"><h1>The Downloader</h1></div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="downloader">
+          <ul class="tabs" id="tab-list" role="tablist">
+            <li class="tab-item" role="presentation">
+              <a
+                class="tab-link active"
+                id="default-format-download-tab"
+                data-toggle="tab"
+                href="#default-format-download"
+                role="tab"
+                aria-controls="default-format-download"
+                aria-selected="true"
+                >Default Format</a
+              >
+            </li>
+            <li class="tab-item" role="presentation">
+              <a
+                class="tab-link"
+                id="custom-format-download-tab"
+                data-toggle="tab"
+                href="#custom-format-download"
+                role="tab"
+                aria-controls="custom-format-download"
+                aria-selected="false"
+                >Custom Format</a
+              >
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <div
+              class="tab-pane"
+              id="default-format-download"
+              data-state="open"
+              role="tabpanel"
+              aria-labelledby="default-format-download-tab"
+            >
+              <div class="download-progress">
+                <div class="progress">
+                  <div
+                    class="progress-bar download-bar"
+                    role="progressbar"
+                    aria-valuenow="0"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    60%
+                  </div>
+                </div>
+                <div class="progress-details">
+                  <span id="download-speed"> -- kbs/s</span>
+                  <span id="progress-status"> -- mb/ -- mb</span>
+                </div>
+              </div>
+
+              <form id="download-info-form">
+                <div class="form-group">
+                  <label for="download-link"> Download Link </label>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="download-link"
+                    placeholder="https://example.png"
+                    pattern="https://.*"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="storage-location"> Storage Location </label>
+                  <input
+                    type="file"
+                    class="form-control-folder"
+                    id="storage-location"
+                    required
+                    webkitdirectory
+                    required
+                  />
+                </div>
+
+                <button class="cta-download" type="submit">Download</button>
+              </form>
+            </div>
+            <div
+              class="tab-pane"
+              id="custom-format-download"
+              data-state="close"
+              role="tabpanel"
+              aria-labelledby="custom-format-download-tab"
+            >
+              <div class="download-progress">
+                <div class="progress">
+                  <div
+                    class="progress-bar download-bar"
+                    role="progressbar"
+                    aria-valuenow="0"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                  <div
+                    class="progress-bar format-progress"
+                    role="progressbar"
+                    aria-valuenow="0"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <div class="progress-details">
+                  <span id="download-speed"> -- kbs/s</span>
+
+                  <span id="progress-status"> -- mb/ -- mb</span>
+                </div>
+              </div>
+
+              <form>
+                <div class="form-group">
+                  <label for="format-selecor">Format Select</label>
+                  <select class="form-control" id="format-selecor">
+                    <option>MP4</option>
+                    <option>MOV</option>
+                    <option>WMV</option>
+                    <option>MKV</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="download-link"> Download Link </label>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="download-link"
+                    placeholder="https://example.png"
+                    pattern="https://.*"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="visually-hidden" for="storage-location">
+                    Storage Location
+                  </label>
+                  <input
+                    type="file"
+                    class="form-control-folder"
+                    id="storage-location"
+                    required
+                    webkitdirectory
+                    required
+                  />
+                </div>
+
+                <button class="cta-download" type="submit">Download</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <div id class="container">
+          <div class="disclaimer">
+            <h3>Disclaimer</h3>
+            <p>
+              This video downloader is for demonstration purposes only and is
+              not meant for pirating content from the web. We do not condone or
+              encourage illegal downloading of copyrighted material.
+            </p>
+            <p>
+              Any unauthorized downloading and sharing of copyrighted material
+              is illegal and can result in civil and criminal penalties. Please
+              use this downloader responsibly and respect copyright laws.
+            </p>
+            <p>
+              By using this tool, you agree that you will only use it for legal
+              purposes and will not use it to infringe on anyone's intellectual
+              property rights. If you choose to download copyrighted material
+              using this tool, you do so at your own risk and we are not liable
+              for any consequences that may arise.
+            </p>
+          </div>
+        </div>
+        <div class="copyrights">
+          <small>
+            &copy <span id="currentYear"></span>. All Rights Reserved
+          </small>
+          <small>Designed by Mohammed Malik</small>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
