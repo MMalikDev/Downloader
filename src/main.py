@@ -6,7 +6,7 @@ from lib.utilities import debug, load_variable, logger
 
 @debug
 def main() -> None:
-    VIDEO = "v="
+    VIDEO = "https://www.youtube.com/watch?v="
     DEFAULT = "@"
 
     ID = load_variable("ID")
@@ -16,9 +16,9 @@ def main() -> None:
         logger.info("Type %s to download: %s", DEFAULT, VIDEO + ID)
         logger.warning("No URL was provided\n")
         return
-
+    
     URL = VIDEO + ID if sys.argv[1] == DEFAULT else sys.argv[1]
-    download_media(location=LOCATION, url=URL)
+    download_media(LOCATION, URL)
 
 
 if __name__ == "__main__":

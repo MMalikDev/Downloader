@@ -16,7 +16,6 @@ services:
     environment:
       THIRD_PARTY_LOGS: $THIRD_PARTY_LOGS
       LOG_LEVEL: $LOG_LEVEL
-      LOCATION: ${MEDIA}
       ID: ${ID}
 
     networks:

@@ -3,7 +3,15 @@ FROM python:$VERSION AS builder
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV LOCATION=downloads
 WORKDIR /code
+
+RUN mkdir -p $LOCATION
+
+# Install FFmpeg
+RUN export DEBIAN_FRONTEND=noninteractive \
+    && apt-get update  \
+    && apt-get -y install ffmpeg
 
 # Install dependencies
 ARG DEPENDENCIES=requirements/core.txt
@@ -11,21 +19,9 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     --mount=type=bind,source=$DEPENDENCIES,target=$DEPENDENCIES  \
     python3 -m pip install -r $DEPENDENCIES 
 
-# Create a non-privileged user 
-ARG UID=10001
-RUN adduser \
-    --disabled-password \
-    --gecos "" \
-    --home "/nonexistent" \
-    --shell "/sbin/nologin" \
-    --no-create-home \
-    --uid "$UID" \
-    code
-
 # ------------------------------------------------------------ #
 
 FROM builder AS testing
-# USER code
 COPY . .
 
 CMD ["python3", "main.py"]

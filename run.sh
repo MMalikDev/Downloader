@@ -19,9 +19,8 @@ declare -a logs=(
 # ---------------------------------------------------------------------- #
 remote_download(){
     local url=${1:-@}
-    local source=$(get_env MEDIA)
     docker exec -it python python3 main.py $url
-    cp_docker python $source .
+    cp_docker python /code/downloads .
     exit 0
 }
 run_devcontainer(){
@@ -46,7 +45,7 @@ run_docker(){
 }
 create_exe() {
     printf "\n$icon_start Creating executable file for main.py\n\n"
-    source .venv/Scripts/activate
+    use_venv
     cd src/
     pyinstaller -F main.py -n Downloader --distpath ../dist --specpath ../dist
     exit 0
@@ -74,7 +73,6 @@ main(){
         esac
     done
     shift $((OPTIND -1))
-    
     use_env_file
 }
 

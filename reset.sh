@@ -14,6 +14,7 @@ declare -a volumes=(
 )
 declare -a bindings=(
     src/build
+    # dist/
 )
 
 # ---------------------------------------------------------------------- #

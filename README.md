@@ -18,11 +18,19 @@ This project provides three methods of execution: via Docker, locally with Pytho
 
 ### Prerequisites
 
-Ensure that one of these prerequisites has been met:
+To run this project, you need either of the following setups:
 
-1. Docker installed; follow the [official Docker installation guide](https://docs.docker.com/engine/install/)
+- Python 3 (recommended: dev version ≥ 3.6) and FFmpeg binary installed
 
-1. [Python3](https://www.python.org/downloads/) installed; version >= 3.6 recommended
+  - [Download Python](https://docs.docker.com/engine/install/)
+
+  - [Download FFmpeg](https://ffmpeg.org/)
+
+OR
+
+- Docker installed
+
+  - [Install Docker](https://docs.docker.com/engine/install/)
 
 ### Docker Execution
 
